@@ -1,32 +1,22 @@
-﻿# Coloca el código de tu juego en este archivo.
-
-# Declara los personajes usados en el juego como en el ejemplo:
-
-define e = Character("Dylan")
-
-
-# El juego comienza aquí.
+﻿define d = Character("Dylan", color="#656f60")
+define m = Character("Mamá", color="6cb8eb")
 
 label start:
+    
+    scene bg_room
+    with fade
 
-    # Muestra una imagen de fondo: Aquí se usa un marcador de posición por
-    # defecto. Es posible añadir un archivo en el directorio 'images' con el
-    # nombre "bg room.png" or "bg room.jpg" para que se muestre aquí.
+    "Lo triste es así.      
+    -Peter Altenberg"
+    
 
-    scene bg room
+    show dylan_idle_small
 
-    # Muestra un personaje: Se usa un marcador de posición. Es posible
-    # reemplazarlo añadiendo un archivo llamado "eileen happy.png" al directorio
-    # 'images'.
-
-    show eileen happy
-
-    # Presenta las líneas del diálogo.
-
-    e "Has creado un nuevo juego Ren'Py."
-
-    e "Este es el placeholder para diálogos."
-
-    # Finaliza el juego:
-
-    return
+    d "M-much-chos a-años d-despu-ués, fre-ente al pel-lotón.... ah, me rindo."
+    d "De que servirá leer con esta bendita discapacidad."
+    hide dylan_idle_small
+    with fade
+    
+    show sylvie blue normal
+    with fade
+    m "No te rindas hijo. Todo valdrá la pena en el futuro."

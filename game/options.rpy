@@ -1,139 +1,138 @@
-﻿## Este archivo contiene opciones que pueden cambiarse para personalizar el
-## juego.
+﻿## This file contains options that can be changed to customize your game.
 ##
-## Las líneas que empiezan con doble '#' son comentarios, no deben ser
-## descomentadas. Las líneas que empiezan con simple '#' son código comentado,
-## puedes descomentarlas si es apropiado.
+## Lines beginning with two '#' marks are comments, and you shouldn't uncomment
+## them. Lines beginning with a single '#' mark are commented-out code, and you
+## may want to uncomment them when appropriate.
 
 
-## Básico ######################################################################
+## Basics ######################################################################
 
-## Nombre del juego en forma legible. Usado en el título de la ventana del
-## juego, en la interfaz y en los informes de error.
+## A human-readable name of the game. This is used to set the default window
+## title, and shows up in the interface and error reports.
 ##
-## El _() que rodea la cadena de texto la señala como traducible.
+## The _() surrounding the string marks it as eligible for translation.
 
 define config.name = _("Lexium")
 
 
-## Determina si el título dado más arriba se muestra en el menú principal.
-## Ajústalo a 'False' para esconder el título.
+## Determines if the title given above is shown on the main menu screen. Set
+## this to False to hide the title.
 
 define gui.show_name = True
 
 
-## Versión del juego.
+## The version of the game.
 
-define config.version = "ALPHA: NO REDISTRIBUIR"
+define config.version = "1.0"
 
 
-## Texto situado en la pantalla 'Acerca de' del juego. Sitúa el texto entre
-## comillas triples y deja una línea en blanco entre párrafos.
+## Text that is placed on the game's about screen. Place the text between the
+## triple-quotes, and leave a blank line between paragraphs.
 
 define gui.about = _p("""
 """)
 
 
-## Nombre breve del juego para ejecutables y directorios en la distribución.
-## Debe contener solo carácteres ASCII, sin espacios, comas o puntos y coma.
+## A short name for the game used for executables and directories in the built
+## distribution. This must be ASCII-only, and must not contain spaces, colons,
+## or semicolons.
 
 define build.name = "Lexium"
 
 
-## Sonidos y música ############################################################
+## Sounds and music ############################################################
 
-## Estas tres variables controlan, entre otras cosas, qué mezcladores se
-## muestran al reproductor de forma predeterminada. Establecer uno de estos en
-## False ocultará el mezclador apropiado. 
+## These three variables control, among other things, which mixers are shown
+## to the player by default. Setting one of these to False will hide the
+## appropriate mixer.
 
 define config.has_sound = True
 define config.has_music = True
 define config.has_voice = True
 
 
-## Para permitir al usuario probar el volumen de los canales de sonido o voz,
-## descomenta la línea más abajo y ajústala a un sonido de ejemplo.
+## To allow the user to play a test sound on the sound or voice channel,
+## uncomment a line below and use it to set a sample sound to play.
 
 # define config.sample_sound = "sample-sound.ogg"
 # define config.sample_voice = "sample-voice.ogg"
 
 
-## Descomenta la línea siguiente para ajustar un archivo de audio que sonará en
-## el menú principal. Este archivo seguirá sonando en el juego hasta que sea
-## detenido o se reproduzca otro archivo.
+## Uncomment the following line to set an audio file that will be played while
+## the player is at the main menu. This file will continue playing into the
+## game, until it is stopped or another file is played.
 
 # define config.main_menu_music = "main-menu-theme.ogg"
 
 
-## Transiciones ################################################################
+## Transitions #################################################################
 ##
-## Estas variables ajustan transiciones usadas ante ciertos eventos. Cada
-## variable debe indicar una transición o bien 'None', cuando no se desea usar
-## ninguna transición.
+## These variables set transitions that are used when certain events occur.
+## Each variable should be set to a transition, or None to indicate that no
+## transition should be used.
 
-## Entrar o salir del manú del juego.
+## Entering or exiting the game menu.
 
 define config.enter_transition = dissolve
 define config.exit_transition = dissolve
 
 
-## Entre pantallas del menú del juego.
+## Between screens of the game menu.
 
 define config.intra_transition = dissolve
 
 
-## Transición tras la carga de una partida.
+## A transition that is used after a game has been loaded.
 
 define config.after_load_transition = None
 
 
-## Transición de acceso al menú principal tras finalizar el juego.
+## Used when entering the main menu after the game has ended.
 
 define config.end_game_transition = None
 
 
-## No existe la variable que ajusta la transición cuando el juego comienza. Para
-## ello se usa la sentencia 'with' al mostrar la escena inicial.
+## A variable to set the transition used when the game starts does not exist.
+## Instead, use a with statement after showing the initial scene.
 
 
-## Gestión de ventanas #########################################################
+## Window management ###########################################################
 ##
-## Esto controla cuándo se muestra la ventana de diálogo. Si es "show", es
-## siempre visible. Si es "hide", solo se muestra cuando hay diálogo presente.
-## Si es "auto", la ventana se esconde antes de las sentencias 'scene' y se
-## muestra de nuevo cuando hay diálogo que presentar.
+## This controls when the dialogue window is displayed. If "show", it is always
+## displayed. If "hide", it is only displayed when dialogue is present. If
+## "auto", the window is hidden before scene statements and shown again once
+## dialogue is displayed.
 ##
-## Una vez comenzado el juego, esto se puede ajustar con las sentencias "window
-## show", "window hide", y "window auto".
+## After the game has started, this can be changed with the "window show",
+## "window hide", and "window auto" statements.
 
 define config.window = "auto"
 
 
-## Transiciones usadas para mostrar o esconder la ventana de diálogo
+## Transitions used to show and hide the dialogue window
 
 define config.window_show_transition = Dissolve(.2)
 define config.window_hide_transition = Dissolve(.2)
 
 
-## Preferencias por defecto ####################################################
+## Preference defaults #########################################################
 
-## Controla la velocidad del texto por defecto. El valor por defecto 0 indica
-## infinito; cualquier otro número indica el número de caracteres por segundo
-## que se mostrarán.
+## Controls the default text speed. The default, 0, is infinite, while any other
+## number is the number of characters per second to type out.
 
 default preferences.text_cps = 0
 
 
-## El retraso por defecto del auto-avance. Números más grandes indican esperas
-## mayores. El rango válido es 0-30.
+## The default auto-forward delay. Larger numbers lead to longer waits, with 0
+## to 30 being the valid range.
 
 default preferences.afm_time = 15
 
 
-## Directorio de guardado ######################################################
+## Save directory ##############################################################
 ##
-## Controla el lugar en el que Ren'Py colocará los archivos de guardado,
-## dependiendo de la plataforma.
+## Controls the platform-specific place Ren'Py will place the save files for
+## this game. The save files will be placed in:
 ##
 ## Windows: %APPDATA\RenPy\<config.save_directory>
 ##
@@ -141,46 +140,43 @@ default preferences.afm_time = 15
 ##
 ## Linux: $HOME/.renpy/<config.save_directory>
 ##
-## Normalmente, este valor no debe ser modificado. Si lo es, debe ser siempre
-## una cadena literal y no una expresión.
+## This generally should not be changed, and if it is, should always be a
+## literal string, not an expression.
 
-define config.save_directory = "Lexium-1654212108"
+define config.save_directory = "Lexium-1658412960"
 
 
-## Ícono #######################################################################
+## Icon ########################################################################
 ##
-## El ícono mostrado en la barra de tareas.
+## The icon displayed on the taskbar or dock.
 
 define config.window_icon = "gui/window_icon.png"
 
 
-## Configuración de 'Build' ####################################################
+## Build configuration #########################################################
 ##
-## Esta sección contrla cómo Ren'Py convierte el proyecto en archivos para la
-## distribución.
+## This section controls how Ren'Py turns your project into distribution files.
 
 init python:
 
-    ## Las funciones siguientes toman patrones de archivos. No son relevantes
-    ## las mayúsculas o minúsculas. Son relativos al directorio base, con o sin
-    ## una / inicial. Si corresponden más de un patrón, se usa el primero.
+    ## The following functions take file patterns. File patterns are case-
+    ## insensitive, and matched against the path relative to the base directory,
+    ## with and without a leading /. If multiple patterns match, the first is
+    ## used.
     ##
-    ## En un patrón:
+    ## In a pattern:
     ##
-    ## / es el separador de directorios.
+    ## / is the directory separator.
     ##
-    ## * corresponde a todos los carácteres, excepto el separador de
-    ##   directorios.
+    ## * matches all characters, except the directory separator.
     ##
-    ## ** corresponde a todos los carácteres, incluynedo el separador de
-    ##    directorios.
+    ## ** matches all characters, including the directory separator.
     ##
-    ## Por ejemplo, "*.txt" corresponde a los archivos .txt en el directorio
-    ## de base, "game/**.ogg" corresponde a los archivos .ogg del directorio
-    ## 'game' y sus subdirectorios y "**.psd" corresponde a los archivos .psd en
-    ## cualquier parte del proyecto.
+    ## For example, "*.txt" matches txt files in the base directory, "game/
+    ## **.ogg" matches ogg files in the game directory or any of its
+    ## subdirectories, and "**.psd" matches psd files anywhere in the project.
 
-    ## Clasifica archivos como 'None' para excluirlos de la distribución.
+    ## Classify files as None to exclude them from the built distributions.
 
     build.classify('**~', None)
     build.classify('**.bak', None)
@@ -188,26 +184,26 @@ init python:
     build.classify('**/#**', None)
     build.classify('**/thumbs.db', None)
 
-    ## Para archivar, se clasifican como 'archive'.
+    ## To archive files, classify them as 'archive'.
 
     # build.classify('game/**.png', 'archive')
     # build.classify('game/**.jpg', 'archive')
 
-    ## Los archivos que corresponden a patrones de documentation se duplican en
-    ## la distribución de mac; aparecerán en los archivos app y zip.
+    ## Files matching documentation patterns are duplicated in a mac app build,
+    ## so they appear in both the app and the zip file.
 
     build.documentation('*.html')
     build.documentation('*.txt')
 
 
-## Es necesaria una clave de licencia Google Play para descargar archivos de
-## expansión y realizar compras en la aplicación. Se puede encontrar en la
-## página "Services & APIs" de la consola de desarrollador de Google Play.
+## A Google Play license key is required to download expansion files and perform
+## in-app purchases. It can be found on the "Services & APIs" page of the Google
+## Play developer console.
 
 # define build.google_play_key = "..."
 
 
-## Los nombres de usuario y de proyecto asociados con un proyecto itch.io,
-## separados por una barra.
+## The username and project name associated with an itch.io project, separated
+## by a slash.
 
 # define build.itch_project = "renpytom/test-project"
