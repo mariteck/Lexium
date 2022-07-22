@@ -1,4 +1,4 @@
-﻿define d = Character("Dylan", color="#656f60")
+﻿define d = Character("Dylan", color="#b0db98")
 define m = Character("Mamá", color="6cb8eb")
 
 label start:
@@ -15,8 +15,6 @@ label start:
     d "M-much-chos a-años d-despu-ués, fre-ente al pel-lotón.... ah, me rindo."
     d "De que servirá leer con esta bendita discapacidad."
     hide dylan_idle_small
-    with fade
     
-    show sylvie blue normal
-    with fade
+    show mom_placeholder
     m "No te rindas hijo. Todo valdrá la pena en el futuro."
