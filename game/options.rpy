@@ -1,4 +1,4 @@
-﻿## This file contains options that can be changed to customize your game.
+## This file contains options that can be changed to customize your game.
 ##
 ## Lines beginning with two '#' marks are comments, and you shouldn't uncomment
 ## them. Lines beginning with a single '#' mark are commented-out code, and you
@@ -18,12 +18,12 @@ define config.name = _("Lexium")
 ## Determines if the title given above is shown on the main menu screen. Set
 ## this to False to hide the title.
 
-define gui.show_name = True
+define gui.show_name = False
 
 
 ## The version of the game.
 
-define config.version = "0.1a"
+define config.version = "0.2"
 
 
 ## Text that is placed on the game's about screen. Place the text between the
@@ -31,6 +31,9 @@ define config.version = "0.1a"
 
 define gui.about = _p("""
 Un juego desarrollado usando Ren'Py 8.0.2.
+
+Programado por Orlando Arroyo, diseño de personajes hecho por Maria José Núñez, guión realizado por Alahí Rodelo, 
+Sofía Estrada y Dana Cantillo.
 """)
 
 
@@ -47,9 +50,9 @@ define build.name = "Lexium"
 ## to the player by default. Setting one of these to False will hide the
 ## appropriate mixer.
 
-define config.has_sound = True
-define config.has_music = True
-define config.has_voice = True
+define config.has_sound = True 
+define config.has_music = True 
+define config.has_voice = True 
 
 
 ## To allow the user to play a test sound on the sound or voice channel,
@@ -85,13 +88,12 @@ define config.intra_transition = dissolve
 
 ## A transition that is used after a game has been loaded.
 
-define config.after_load_transition = None
+define config.after_load_transition = dissolve
 
 
 ## Used when entering the main menu after the game has ended.
 
-define config.end_game_transition = None
-
+define config.end_game_transition = fade
 
 ## A variable to set the transition used when the game starts does not exist.
 ## Instead, use a with statement after showing the initial scene.
