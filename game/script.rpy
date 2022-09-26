@@ -1,6 +1,10 @@
 define d = Character("Dylan", color="#b0db98")
 define m = Character("Mamá", color="6cb8eb")
-define ms = Character("Miss. Sylvie", color="#74C7EF")
+define mr = Character("Miss. Ramos", color="#74C7EF")
+define a1 = Character("Joel", color="#FFFFFF")
+define a2 = Character("Pedrito", color="#FFFFFF")
+define a3 = Character("Camilo", color="#FFFFFF")
+define b = Character("Bibliotecaria", color="#FFFFFF") 
 label start:
     #first level start
     default sour = False
@@ -20,7 +24,8 @@ label start:
 
     "¿Dylan?"  
 
-    stop sound fo with fade 
+    stop sound 
+    stop music
     
     hide black
     scene bg_room
@@ -172,6 +177,39 @@ label start:
     "{i}No te detuviste a hablar con nadie, y solo llegaste directo al salón."
     scene bg_classroom with pixellate
     hide black
-    show professor with fade
-    ms "Ok, clase. Hoy vamos a hacer una actividad en grupo."
-    ms "¡Grupos de 5 por favor! ¡Y rápido!"
+    show professor with dissolve
+    mr "Ok, clase. Hoy vamos a hacer una actividad en grupo."
+    mr "¡Grupos de 4 por favor! ¡Y rápido!"
+    hide professor with dissolve
+    "{i}Seguías pesado por el sueño, asi que lentamente te paraste a buscar a tus amigos.{/i}"
+    "{i}Al cabo de unos minutos de gritos y ruido, el salón estaba organizado.{/i}"
+    show professor with dissolve 
+    mr "Hoy les tengo una actividad de búsqueda del tesoro."
+    mr "Alrededor del colegio, hay unos elementos escondidos. Cada grupo tiene una lista de ellos, ojo que no se les pierda."
+    mr "-Porque no les voy a dar más."
+    mr "Junto a esos elementos, habrá unos acertijos."
+    mr "¡El primer grupo en traer los elementos completos tendra una recompensa en la asignaura!"
+    mr "Ahora vayan, que no tienen todo el día."
+    hide professor with dissolve 
+    "{i}Te reúnes con tu grupo de amigos para que hablen sobre su estrategia.{/i}"
+    al "Empezaremos por la biblioteca y los pasillos, ¿alguien me quiere acompañar a la biblioteca?"
+    d "¡¡YO!!"
+    a1 "Em, ok pues."
+    scene bg_hall with pixellate
+    hide bg_classroom
+    "{i}Te encaminas a la biblioteca junto a Joel.{/i}"
+    scene bg_library with pixellate
+    hide bg_classroom
+    al "Esto es genial, ¡¿muy emocionante no?!"
+    d "Totalmente...."
+    "{i}No te sientes muy llamado a esto, pero aun así sigues buscando.{/i}"
+    d "¡Encontre uno!"
+    b "¡SHHHHH! ¡Estamos en una biblioteca joven, no en el mercado!" 
+    d "¡Lo siento!"
+    "{i}Sales rápidamente de la biblioteca, junto a Joel."
+    a1 "¡Bien! A ver el acertijo."
+    d "{i}{color=#8f8f8f}
+    
+    
+    
+    
