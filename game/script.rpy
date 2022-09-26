@@ -1,14 +1,27 @@
-﻿define d = Character("Dylan", color="#b0db98")
+define d = Character("Dylan", color="#b0db98")
 define m = Character("Mamá", color="6cb8eb")
+define ms = Character("Miss. Sylvie", color="#74C7EF")
 label start:
     #first level start
     default sour = False
     default sweet = False
     scene black
     hide bg_day1 with fade
-    "¡Dylan, ven acá!"
+    play music salem volume 0.2
+
+    "Si la raiz de cuarenta y nueve es... "
+    "¡Dylan!"
+    "..¿6?"
+    "¡DYLAN!"
+
+    "...Entonces la raiz de kuɐtro..."
     
-    "¡Ya va!"    
+    play sound fo
+
+    "¿Dylan?"  
+
+    stop sound fo with fade 
+    
     hide black
     scene bg_room
     with fade
@@ -111,6 +124,54 @@ label start:
     show black 
     hide bg_kitchen with fade
     
-
-
-#first level end
+    "{i}Normalmente, no sueñas mucho.{/i}"
+    "{i}Tu realidad de videojuegos y películas deja mucho que desear en términos de soñar.{/i}"
+    scene dream_bg_street with fade
+    hide black
+    "{i}Solo deseas que un día pudieras caminar por la calle sin la ansiedad de los sonidos que tanto te molestan.{/i}"
+    "{i}De repente, te das cuenta de que el parque al que usualmente vas está cubierto de nieve.{/i}"
+    scene dream_forest with fade
+    hide dream_bg_street
+    "{i}De repente, el parque que visitabas todos los días se había convertido en un bosque, extenso, inmiscuido en un aura de oscuridad, y neblina.{/i}"
+    "{i}Continuaste caminando, y te encontraste a la distancia con una pequeña ave...{/i}"
+    d "¿Un petirrojo? ¿Que haces aquí amigo?"
+    "{i}El petirrojo, casi conociendote, despegó, revoloteando hasta posarse en tu hombro.{i}"
+    "{i}Casi al instante, el petirrojo comenzó a cantar una melodía suave y dulce...{/i}"
+    scene dream_river with fade
+    hide dream_forest
+    "{i}De la nada, fuiste transportado a otra parte del bosque.{/i}"
+    "{i}Era un río, iridiscente, como si hubiera una bombilla por debajo del mismo...{/i}"
+    "{i}Parecía algo {b}mágico{/b}, y no podías explicar el porqué.{/i}"
+    "{i}Fue en ese entonces que notaste una hojita, con algo escrito en ella.{/i}"
+    d "{i}El futuro está en tus manos...{/i}"
+    "{i}De repente te diste cuenta; no tuviste problemas para leer.{/i}"
+    "{i}Algo te decía, 'Acércate... tengo el secreto que buscas...'{/i}"
+    "{i}La curiosidad te ganó la batalla, y decidiste entrar al río.{/i}"
+    scene black with fade
+    hide dream_river
+    "{i}Te estabas acercando más y más al río, y fue justo entonces cuando...{/i}"
+    "{i}{color=#8f8f8f}¡¡DESPIERTA!!{/i}{/color}"
+    scene bg_room with dissolve
+    hide black 
+    show mom_idle at right
+    show dylan_idle_small at left
+    d "¡GAAAH!"
+    m "Por dios hijo, ¡que vas tarde a la escuela!"
+    m "Levántate ya mijo, dale, dale rápido."
+    "{i}No puedes contenerte y bostezas fuertemente.{/i}"
+    d "Ok, ok, voy."
+    "{i}Te cambiaste lo más rapido posible, y saliste al colegio.{/i}"
+    scene bg_street with fade
+    hide bg_room
+    "{i} Después de ese sueño, querías pasar por el parque.{/i}"
+    "{i}Ahora ibas un poco corto de tiempo, así que solo fuiste directo a la escuela.{/i}"
+    scene black with pixellate
+    "{i}Después de una corta caminata, llegaste a la escuela.{/i}"
+    "{i}Tu 'problema', al menos asi lo llamaban todos. no te dejaba estudiar muy bien.{/i}"
+    "{i}Para ir al colegio, era necesaria mucha fuerza de voluntad para seguir adelante.{/i}"
+    "{i}No te detuviste a hablar con nadie, y solo llegaste directo al salón."
+    scene bg_classroom with pixellate
+    hide black
+    show professor with fade
+    ms "Ok, clase. Hoy vamos a hacer una actividad en grupo."
+    ms "¡Grupos de 5 por favor! ¡Y rápido!"
