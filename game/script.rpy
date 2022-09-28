@@ -9,6 +9,7 @@ label start:
     #first level start
     default sour = False
     default sweet = False
+    default l_solve = False 
     scene black
     hide bg_day1 with fade
     play music salem volume 0.2
@@ -192,7 +193,9 @@ label start:
     mr "Ahora vayan, que no tienen todo el día."
     hide professor with dissolve 
     "{i}Te reúnes con tu grupo de amigos para que hablen sobre su estrategia.{/i}"
-    al "Empezaremos por la biblioteca y los pasillos, ¿alguien me quiere acompañar a la biblioteca?"
+    show dylan_idle_small with fade
+    a1 "Empezaremos por la biblioteca y los pasillos, ¿alguien me quiere acompañar a la biblioteca?"
+    "{i}Figurabas que- al ser la biblioteca, habría más silencio que afuera de esta.{/i}"
     d "¡¡YO!!"
     a1 "Em, ok pues."
     scene bg_hall with pixellate
@@ -200,7 +203,7 @@ label start:
     "{i}Te encaminas a la biblioteca junto a Joel.{/i}"
     scene bg_library with pixellate
     hide bg_classroom
-    al "Esto es genial, ¡¿muy emocionante no?!"
+    a1 "Esto es genial, ¡¿muy emocionante no?!"
     d "Totalmente...."
     "{i}No te sientes muy llamado a esto, pero aun así sigues buscando.{/i}"
     d "¡Encontre uno!"
@@ -208,7 +211,24 @@ label start:
     d "¡Lo siento!"
     "{i}Sales rápidamente de la biblioteca, junto a Joel."
     a1 "¡Bien! A ver el acertijo."
-    d "{i}{color=#8f8f8f}
+    d "{i}{color=#8f8f8f}Hay Z qabres y Z hijos, qero zolo hay 3 qersonas. ¿Puienez som?{/i}{/color}"
+    menu:
+        "¿No serán un abuelo, un padre y un hijo?":
+            a1 "Hmmm... puede ser, habrá que ver a futuro."
+            $ l_solve=True
+        "Ay, no sé. Nunca me gustaron estos problemas.":
+            a1 "Pero, si sigues actúando así nunca llegarás a nada...."
+            $ l_solve=False
+        "¿Tu que crees que es?":
+            a1 "Hmm... de pronto son una pareja y un abuelo.. no sé."
+            $ l_solve=False
+        "{i}Te quedas callado, nervioso.{/i}":
+            a1 "¿Dylan? Estás raro, man."
+            d "¡AH! Ah, si si. No pasa nada."
+            $ l_solve=False
+    a1 "Regresemos a estos chicos, vamos a ver que han visto."
+    "{i}Aún distraido y cansado, respondes-{/i}"
+    d "Ok, vamos."
     
     
     
