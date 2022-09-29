@@ -4,12 +4,15 @@ define mr = Character("Miss. Ramos", color="#74C7EF")
 define a1 = Character("Joel", color="#FFFFFF")
 define a2 = Character("Pedrito", color="#FFFFFF")
 define a3 = Character("Camilo", color="#FFFFFF")
-define b = Character("Bibliotecaria", color="#FFFFFF") 
+define b = Character("Bibliotecaria", color="#FFFFFF")
+define t = Character("Todos") 
 label start:
     #first level start
     default sour = False
     default sweet = False
-    default l_solve = False 
+    default l1_solve = False
+    default l2_solve = False 
+    default silence = False
     scene black
     hide bg_day1 with fade
     play music salem volume 0.2
@@ -201,7 +204,7 @@ label start:
     scene bg_hall with pixellate
     hide bg_classroom
     "{i}Te encaminas a la biblioteca junto a Joel.{/i}"
-    scene bg_library with pixellate
+    scene bg_library_l with pixellate
     hide bg_classroom
     a1 "Esto es genial, ¡¿muy emocionante no?!"
     d "Totalmente...."
@@ -211,25 +214,121 @@ label start:
     d "¡Lo siento!"
     "{i}Sales rápidamente de la biblioteca, junto a Joel."
     a1 "¡Bien! A ver el acertijo."
-    d "{i}{color=#8f8f8f}Hay Z qabres y Z hijos, qero zolo hay 3 qersonas. ¿Puienez som?{/i}{/color}"
+    d "{i}{color=#8f8f8f}Hay Z qabres y Z hijos, qero zolo hay E qerzonaz. ¿Puienez som?{/i}{/color}"
     menu:
         "¿No serán un abuelo, un padre y un hijo?":
             a1 "Hmmm... puede ser, habrá que ver a futuro."
-            $ l_solve=True
+            $ l1_solve=True
         "Ay, no sé. Nunca me gustaron estos problemas.":
             a1 "Pero, si sigues actúando así nunca llegarás a nada...."
-            $ l_solve=False
+            $ l1_solve=False
         "¿Tu que crees que es?":
             a1 "Hmm... de pronto son una pareja y un abuelo.. no sé."
-            $ l_solve=False
+            $ l1_solve=False
         "{i}Te quedas callado, nervioso.{/i}":
             a1 "¿Dylan? Estás raro, man."
             d "¡AH! Ah, si si. No pasa nada."
-            $ l_solve=False
+            $ l1_solve=False
+            $ silence=True 
     a1 "Regresemos a estos chicos, vamos a ver que han visto."
     "{i}Aún distraido y cansado, respondes-{/i}"
     d "Ok, vamos."
-    
-    
-    
-    
+    scene bg_hall with pixellate
+    hide bg_library_l
+    "{i}Cuando logran encontrar a tus amigos, ya ellos tienen los elementos-{/i}"
+    "{i}Solo les falta los acertijos.{/i}"
+    if l1_solve == True:
+        a1 "¿Que acertijos tienen listos?"
+        a2 "Casi todos, solo nos falta uno."
+        a1 "Dylan puede resolverlo, le gusta hacerlo."
+        d "Ehm... esta bien pues. A ver."
+        d "{i}{color=#8f8f8f} Zi E minos casam E nozcaz en E nimutoz, ¿cuánto larbaram EO minoz em casar EO nozcaz?{/i}{/color}"
+        menu: 
+            "Son 30 minutos. Si cada uno se aumenta por 10...":
+                a3 "Tiene sentido... pero hay algo que no me cuadra..."
+                $ l2_solve = False
+            "Si son 30 niños para 30 moscas.... ¿no serían 3 minutos igualmente?":
+                a2 "Oye si.... me gusta."
+                a1 "Y eso que por fin haces algo bien?"
+                $ l2_solve = True
+            "Em no tengo ni idea.":
+                a2 "Ah."
+                a3 "No creen que es una hora?"
+                d "Dios..."
+                $ l2_solve = False
+    elif l1_solve == False:
+        a1 "Tenemos otro acertijo aquí."
+        a3 "Si, está bien, pero no tenemos ninguno de los otros. ¿Que hacemos?"
+        a2 "Miren a ver si Dylan puede resolver uno siquiera."
+        if silence == True:
+            a1 "No le digan que resuelva nada. No quiere colaborar."
+            d "....."
+            a2 "No seas tan duro, todos tenemos días malos."
+            a1 "¡PERO EL SIEMPRE ES ASÍ!"
+            d "Por favor.... Paren...."
+        else:
+            a1 "Vamos Dylan. Tu puedes."
+            d "{i}{color=#8f8f8f} Zi E minos casam E nozcaz en E nimutoz, ¿cuánto larbaram EO minoz em casar EO nozcaz?{/i}{/color}"
+            menu: 
+                "Son 30 minutos. Si cada uno se aumenta por 10...":
+                    a3 "Tiene sentido... pero hay algo que no me cuadra..."
+                    $ l2_solve = False
+                "Si son 30 niños para 30 moscas.... ¿no serían 3 minutos igualmente?":
+                    a2 "Oye si.... me gusta."
+                    a1 "Y eso que por fin haces algo bien?"
+                    $ l2_solve = True
+                "Em no tengo ni idea.":
+                    a2 "Ah."
+                    a3 "No creen que es una hora?"
+                    d "Dios..."
+                    $ l2_solve = False
+    if l1_solve == True: 
+        if l2_solve == True:
+            a1 "Vamos a entregar esto. ¡Ganaremos!"
+            "{i} Tus amigos te contagiaron su entusiasmo y no pudiste contener la felicidad-{/i}"
+            t "{i}En unísono-{/i} ¡VAMOS!"
+            scene bg_classroom with pixellate
+            hide bg_hall
+            mr "¡Con que tenemos nuestros primeros ganadores!"
+            mr "¿Cómo les fue?"
+            menu:
+                "Respondes primero.":
+                    d "Nos fue genial, Miss Ramos."
+                "Dejas que Joel responda.":
+                    a1 "Fue super bien, Miss."
+            mr "Espero les haya gustado. Ahora, vayan recogiendo sus cosas- Mañana entregaré los resultados."
+            t "¡Entendido!"
+    elif l1_solve == True:  
+        if l2_solve == False:
+            a1 "Bueno, esperemos que estamos en lo correcto."
+            a3 "Claro, vamos."
+            scene bg_classroom with fade
+            hide bg_hall
+            mr "¡Con que tenemos nuestros primeros ganadores!"
+            mr "¿Cómo les fue?"
+            a2 "Nos fue bien, con problemas pero bien."
+            mr "Bueno, mañana entregaré los resultados. Estén atentos."
+            t "Listo, ¡gracias!"
+    elif l1_solve == False: 
+        if l2_solve == False:
+            a1 "Esto es un desastre, pero no nos queda de otra."
+            if silence == True:    
+                d "Esperemos que nos vaya bie-"
+                a1 "Cállate, ojos cruzados."
+                a1 "No necesitamos que vengas ahora a molestar."
+            else:
+                d "No se desanimen, que todavía no sabemos si estamos bien o mal."
+                a3 "Supongo."
+            scene bg_classroom with dissolve
+            hide bg_hall
+            if silence == True:
+                mr "Los veo desanimados chicos. ¿Qué pasó?"
+                a1 "¡¡¡DYLAN NO HIZO NADA!!!"
+                mr "Dylan, ya hablamos sobre esto. ¿Te sientes bien?"
+                d "Si señora. No volverá a pasar."
+                mr "Bueno. Resultados salen mañana. Tengan buena tarde, chicos."
+            else:
+                mr "¡Bien! Tenemos la primera entrega."
+                mr "Mañana entregaré el resultado. ¿Cómo creen que les fue?"
+                a2 "Ahí vamos, esperamos lo mejor."
+                mr "Ese es el espíritu. ¡Tengan buena tarde chicos!"
