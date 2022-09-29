@@ -15,10 +15,12 @@ label start:
     play music salem volume 0.2
 
     "Si la raiz de cuarenta y nueve es... "
-    "¡Dylan!"
     "..¿6?"
+    "¡Dylan!"
+    "Entones la raiz de 121 puede ser..."
     "¡DYLAN!"
-
+    "¿...?"
+    "...hm..."
     "...Entonces la raiz de kuɐtro..."
     
     play sound fo
